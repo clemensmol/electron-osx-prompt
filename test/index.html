@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Electron prompt</title>
+</head>
+<body>
+  <p>This is just a test window for the prompt!</p>
+  <button onclick="showPrompt()">Click to open</button>
+  <p id="input"></p>
+</body>
+</html>
+
+<script>
+  function showPrompt() {
+    const input = require('./../index');
+
+    input()
+      .then((r) => {
+        document.getElementById('input').innerHTML = r;
+      });
+    }
+</script>

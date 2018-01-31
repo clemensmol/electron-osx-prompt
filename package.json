@@ -1,0 +1,22 @@
+{
+  "name": "electron-osx-prompt",
+  "version": "1.0.0",
+  "description": "Electron macOS-style prompt.",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron test/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulgrv/electron-osx-prompt.git"
+  },
+  "author": "paulgrv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulgrv/electron-osx-prompt/issues"
+  },
+  "homepage": "https://github.com/paulgrv/electron-osx-prompt#readme",
+  "devDependencies": {
+    "electron": "^1.7.11"
+  }
+}
