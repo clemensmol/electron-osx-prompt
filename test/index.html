@@ -17,9 +17,9 @@
   function showPrompt() {
     const input = require('./../index');
 
-    input()
+    input('Ya label here!', 'What about some input?')
       .then((r) => {
-        document.getElementById('input').innerHTML = r;
+        if (r) document.getElementById('input').innerHTML = r;
       });
     }
 </script>

@@ -1,10 +1,10 @@
 const { ipcRenderer } = require('electron');
 
 ipcRenderer.on('prompt-settings', (event, options) => {
-    document.getElementById('title').innerHTML = options.title;
     document.getElementById('label').innerHTML = options.label;
     document.getElementById('input').placeholder = options.placeholder;
-    document.getElementById('prompt-img').src = options.icon;
+    document.getElementById('prompt-img').src =
+        'data:image/png;base64,' + new Buffer(options.icon).toString('base64');
 })
 
 document.addEventListener("DOMContentLoaded", function(event) {
