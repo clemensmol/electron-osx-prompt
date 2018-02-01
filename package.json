@@ -1,5 +1,5 @@
 {
-  "name": "electron-osx-prompt",
+  "name": "electron-osx-prompt-demo",
   "version": "1.0.0",
   "description": "Electron macOS-style prompt.",
   "main": "index.js",
@@ -20,6 +20,7 @@
     "electron": "^1.7.11"
   },
   "dependencies": {
+    "electron-osx-prompt": "^1.0.0",
     "file-icon": "^2.1.0"
   }
 }

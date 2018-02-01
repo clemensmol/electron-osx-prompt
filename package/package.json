@@ -1,0 +1,14 @@
+{
+  "name": "electron-osx-prompt",
+  "version": "1.0.0",
+  "description": "Electron macOS-style prompts.",
+  "main": "index.js",
+  "author": "paulgrv",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.7.11"
+  },
+  "dependencies": {
+    "file-icon": "^2.1.0"
+  }
+}
