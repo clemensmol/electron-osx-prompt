@@ -1,5 +1,5 @@
 const electron = require('electron');
-const { BrowserWindow, ipcMain } = electron.remote;
+const { BrowserWindow, ipcMain } = electron || electron.remote;
 
 const fileIcon = require('file-icon');
 
