@@ -1,7 +1,7 @@
 'use strict'
 
 // Load the global electron module
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 const url = require('url')
 const path = require('path')
 
@@ -39,3 +39,16 @@ function createMainWindow() {
     win = null
   })
 }
+
+ipcMain.on('open-prompt', (event, arg) => {
+
+  //const input = require('./../package/index');
+  const input = require('electron-osx-prompt');
+
+  input('Hey', 'Type here...')
+    .then((r) => {
+      if (r) {
+        event.sender.send('return-prompt', r);
+      }
+    });
+})

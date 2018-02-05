@@ -10,17 +10,19 @@
   <p>This is just a test window for the prompt!</p>
   <button onclick="showPrompt()">Click to open</button>
   <p id="input"></p>
+  <script>document.write('<p>' + require('electron').remote.app.getName() + '</p>')</script>
+  <script>document.write('<p>' + require('electron').remote.process.pid + '</p>')</script>
 </body>
 </html>
 
 <script>
   function showPrompt() {
-    // const input = require('./../package/index');
-    const input = require('electron-osx-prompt');
+    const {ipcRenderer} = require('electron');
 
-    input('Ya label here!', 'What about some input?')
-      .then((r) => {
-        if (r) document.getElementById('input').innerHTML = r;
-      });
-    }
+    ipcRenderer.on('return-prompt', (event, arg) => {
+      document.getElementById('input').innerHTML = arg;
+    })
+
+    ipcRenderer.send('open-prompt', '')
+  }
 </script>

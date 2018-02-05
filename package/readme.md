@@ -1,14 +1,19 @@
 # Electron OS X Prompts
 
 ## Usage (from Electron renderer process)
-```
-const input = require('electron-osx-prompt');
+IMPORTANT: The module can only be used from the main process, so use IPC.
+If you package an app, disable packaging as asar archive!
 
-// pop up a prompt
-input('label text', 'placeholder text')
-  .then((r) => {
-    // write the user input to the document
-    if (r) document.getElementById('input').innerHTML = r;
-  });
-}
+```javascript
+ipcMain.on('open-prompt', (event, arg) => {
+
+  const input = require('electron-osx-prompt')
+
+  input('Label text', 'Placeholder text')
+    .then((r) => {
+      if (r) {
+        console.log(r)
+      }
+    })
+})
 ´´´

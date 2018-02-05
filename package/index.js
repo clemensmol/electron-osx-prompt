@@ -1,9 +1,5 @@
-const electron = require('electron');
-const { BrowserWindow, ipcMain } = electron || electron.remote;
+const { app, BrowserWindow, ipcMain } = require('electron');
 
-const fileIcon = require('file-icon');
-
-const process = require('process');
 const url = require('url');
 const path = require('path');
 
@@ -16,7 +12,8 @@ function InputPrompt (_label = 'Please enter a value', _placeholder = '') {
       alwaysOnTop: true,
       backgroundColor: '#ECECEC',
       show: false,
-      frame: false
+      frame: false,
+      resizable: false
     });
 
     promptWindow.setMenu(null);
@@ -29,20 +26,15 @@ function InputPrompt (_label = 'Please enter a value', _placeholder = '') {
 
     promptWindow.loadURL(promptUrl);
 
-    let pid = process.pid;
+    let options = {
+      label: _label,
+      placeholder: _placeholder
+    }
 
-    fileIcon.buffer(pid, {size: 60}).then(buffer => {
-      let options = {
-        label: _label,
-        placeholder: _placeholder,
-        icon: buffer
-      }
-
-      promptWindow.webContents.on('did-finish-load', () => {
-        promptWindow.webContents.send('prompt-settings', options)
-      })
+    promptWindow.webContents.on('did-finish-load', () => {
+      promptWindow.webContents.send('prompt-settings', options)
+      // promptWindow.webContents.openDevTools({detach: true})
     });
-
 
     promptWindow.once('ready-to-show', promptWindow.show);
 
@@ -56,6 +48,7 @@ function InputPrompt (_label = 'Please enter a value', _placeholder = '') {
     };
 
     ipcMain.on('return-value', returnValue)
+
   });
 }
 
