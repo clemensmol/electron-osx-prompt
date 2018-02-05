@@ -16,4 +16,3 @@ ipcMain.on('open-prompt', (event, arg) => {
       }
     })
 })
-´´´
