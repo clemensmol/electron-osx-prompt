@@ -42,10 +42,10 @@ function createMainWindow() {
 
 ipcMain.on('open-prompt', (event, arg) => {
 
-  //const input = require('./../package/index');
+  // const input = require('./../package/index');
   const input = require('electron-osx-prompt');
 
-  input('Hey', 'Type here...')
+  input('Please enter a value', 'Type here...')
     .then((r) => {
       if (r) {
         event.sender.send('return-prompt', r);

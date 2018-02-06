@@ -7,7 +7,7 @@ const path = require('path')
 
 process.noAsar = true;
 
-ipcRenderer.on('prompt-settings', (event, options) => {
+ipcRenderer.on('electron-osx-prompt-settings', (event, options) => {
     document.getElementById('label').innerHTML = options.label;
     document.getElementById('input').placeholder = options.placeholder;
 
@@ -31,10 +31,10 @@ function enter(e) {
 }
 
 function Ok() {
-    let returnValue = document.getElementById('input').value;
-    ipcRenderer.sendSync('return-value', returnValue);
+    let returnValue = document.getElementById('input').value.toString();
+    ipcRenderer.sendSync('electron-osx-prompt-return-value', returnValue);
 }
 
 function Cancel() {
-    ipcRenderer.sendSync('return-value', null);
+    ipcRenderer.sendSync('electron-osx-prompt-return-value', null);
 }

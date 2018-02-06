@@ -6,6 +6,6 @@
     "electron": "^1.8.1"
   },
   "dependencies": {
-    "electron-osx-prompt": "^1.2.1"
+    "electron-osx-prompt": "^1.3.1"
   }
 }

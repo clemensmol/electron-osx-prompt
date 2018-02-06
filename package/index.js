@@ -27,12 +27,12 @@ function InputPrompt (_label = 'Please enter a value', _placeholder = '') {
     promptWindow.loadURL(promptUrl);
 
     let options = {
-      label: _label,
-      placeholder: _placeholder
+      label: _label.toString(),
+      placeholder: _placeholder.toString()
     }
 
     promptWindow.webContents.on('did-finish-load', () => {
-      promptWindow.webContents.send('prompt-settings', options)
+      promptWindow.webContents.send('electron-osx-prompt-settings', options)
       // promptWindow.webContents.openDevTools({detach: true})
     });
 
@@ -47,7 +47,7 @@ function InputPrompt (_label = 'Please enter a value', _placeholder = '') {
       }
     };
 
-    ipcMain.on('return-value', returnValue)
+    ipcMain.on('electron-osx-prompt-return-value', returnValue)
 
   });
 }
