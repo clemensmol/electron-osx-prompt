@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulgrv/electron-osx-prompt.git"
+    "url": "git+https://github.com/peterfreeman/electron-osx-prompt.git"
   },
-  "author": "paulgrv",
+  "author": "peterfreeman",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/paulgrv/electron-osx-prompt/issues"
+    "url": "https://github.com/peterfreeman/electron-osx-prompt/issues"
   },
-  "homepage": "https://github.com/paulgrv/electron-osx-prompt#readme",
+  "homepage": "https://github.com/peterfreeman/electron-osx-prompt#readme",
   "devDependencies": {
     "electron": "^1.8.1"
   },
