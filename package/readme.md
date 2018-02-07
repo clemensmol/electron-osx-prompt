@@ -2,7 +2,7 @@
 
 > Electron macOS-style prompts.
 
-<img src="demo.png">
+<img src="https://i.imgur.com/rS6Dncv.png">
 
 
 ## IMPORTANT
@@ -21,12 +21,12 @@ $ npm install electron-osx-prompt
 ```js
 ipcMain.on('open-prompt', (event, arg) => {
 
-  const input = require('electron-osx-prompt')
+  const userPrompt = require('electron-osx-prompt')
 
-  input('Label text', 'Placeholder text')
-    .then(r => {
-      if (r) {
-        console.log(r)
+  userPrompt('Label text', 'Placeholder text')
+    .then(input => {
+      if (input) {
+        console.log(input)
       }
     })
 })
