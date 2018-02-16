@@ -4,9 +4,14 @@
 
 <img src="https://i.imgur.com/rS6Dncv.png">
 
-
 ## IMPORTANT
-This module does not work when packaging your app with asar because of the `child_process.spawn()` error. I'm trying to find a workaround for this.
+When packaging your app with asar you have to manually exclude this module by adding the `--unpack-dir {node_modules/electron-osx-prompt}` flag.
+This is required because the `child_process.spawn()` command is used to get your app icon.
+
+The complete packaging command should now look like
+```
+$ asar pack app app.asar --unpack-dir {node_modules/electron-osx-prompt}
+```
 
 ## Install
 ```
@@ -26,17 +31,14 @@ userPrompt('Label text', 'Placeholder text')
 
 ## Options
 You can change the label text and the textbox placeholder text.
-Your app icon will be automatically loaded after packaging the app (no asar!).
+Your app icon will be automatically loaded after packaging the app (see above).
 If you pass a BrowserWindow as the third parameter, the prompt will be attached as a dialog from the top.
 
-### input([label, placeholder])
+### input([label, placeholder, browserWindow])
 - label: `string`. Default: `"Please enter a value"`
 - placeholder: `string`. Default: `""`
 - browserWindow: `BrowserWindow`. Default: `null`
 - returns Promise with user input. Cancel will return `null`.
-
-## ToDo
-- auto asar-exclude
 
 ## Licence
 MIT © Peter Freeman
