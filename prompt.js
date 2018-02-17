@@ -17,8 +17,6 @@ ipcRenderer.on('electron-osx-prompt-settings', (event, options) => {
         document.getElementById('prompt-img').src = img;
     });
 
-    console.log(options.browserWindow)
-
     if (options.browserWindow == null) {
         var header = document.getElementById('header')
         header.insertAdjacentHTML('afterbegin', '<header class="toolbar toolbar-header"></header>')

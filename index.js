@@ -1,8 +1,7 @@
 const electron = require('electron');
 
 const BrowserWindow = electron.BrowserWindow || electron.remote.BrowserWindow
-
-const ipcMain = electron.ipcMain ||  electron.remote.ipcMain
+const ipcMain = electron.ipcMain || electron.remote.ipcMain
 
 const url = require('url');
 const path = require('path');
@@ -12,6 +11,13 @@ function InputPrompt (
               _placeholder = '',
               browserWindow = null) {
   return new Promise((resolve, reject) => {
+    if (process.platform !== 'darwin') {
+      let err = 'Electron-osx-prompt is only available for macOS.'
+      console.error(err)
+      Promise.reject(new Error(err))
+      return
+    }
+
     let hasParent = null
     let isModal = false
 
@@ -51,7 +57,7 @@ function InputPrompt (
 
     promptWindow.webContents.on('did-finish-load', () => {
       promptWindow.webContents.send('electron-osx-prompt-settings', options)
-      //promptWindow.webContents.openDevTools({detach: true})
+      promptWindow.webContents.openDevTools({detach: true})
     });
 
     promptWindow.once('ready-to-show', promptWindow.show);
