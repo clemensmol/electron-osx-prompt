@@ -1,8 +1,10 @@
 # Electron OS X Prompts
 
-> Electron macOS-style prompts. Works only on _macOS_.
+> Electron macOS-style prompts. Works only on macOS.
 
-<img src="https://i.imgur.com/rS6Dncv.png">
+<img src="https://i.imgur.com/rS6Dncv.png" width="500px">
+
+<img src="https://i.imgur.com/l7rcbrE.png" width="500px">
 
 ## IMPORTANT
 When packaging your app with asar you have to manually exclude this module by adding the `--unpack-dir {node_modules/electron-osx-prompt}` flag.
@@ -26,6 +28,9 @@ const userPrompt = require('electron-osx-prompt')
 userPrompt('Label text', 'Placeholder text')
   .then(input => {
     console.log(input)
+  })
+  .catch(err => {
+    console.log(err)
   })
 ```
 
