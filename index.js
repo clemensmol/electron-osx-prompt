@@ -57,7 +57,7 @@ function InputPrompt (
 
     promptWindow.webContents.on('did-finish-load', () => {
       promptWindow.webContents.send('electron-osx-prompt-settings', options)
-      promptWindow.webContents.openDevTools({detach: true})
+      // promptWindow.webContents.openDevTools({detach: true})
     });
 
     promptWindow.once('ready-to-show', promptWindow.show);

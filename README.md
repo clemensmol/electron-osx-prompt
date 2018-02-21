@@ -6,18 +6,15 @@
 
 <img src="https://i.imgur.com/l7rcbrE.png" width="500px">
 
-## IMPORTANT
-When packaging your app with asar you have to manually exclude this module by adding the `--unpack-dir {node_modules/electron-osx-prompt}` flag.
-This is required because the `child_process.spawn()` command is used to get your app icon.
-
-The complete packaging command should now look like
-```
-$ asar pack app app.asar --unpack-dir {node_modules/electron-osx-prompt}
-```
-
 ## Install
 ```
 $ npm install electron-osx-prompt
+```
+When packaging your app with asar you have to manually exclude this module by adding the `--unpack-dir {node_modules/electron-osx-prompt}` flag.
+This is required because the `child_process.spawn()` command is used to get your app icon.
+The complete packaging command should now look like
+```
+$ asar pack app app.asar --unpack-dir {node_modules/electron-osx-prompt}
 ```
 
 ## Usage
