@@ -1,3 +1,8 @@
+#prompt-img {
+  width: 60px;
+  height: 60px;
+}
+
 .prompt-content {
   text-align: center;
   align-content: flex-start;

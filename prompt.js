@@ -1,21 +1,12 @@
 const { ipcRenderer } = require('electron');
 const remote = require('electron').remote;
 
-const { getAppIconByPid } = require('node-mac-app-icon');
-
 const path = require('path')
 
 ipcRenderer.on('electron-osx-prompt-settings', (event, options) => {
     document.getElementById('label').innerHTML = options.label;
     document.getElementById('input').placeholder = options.placeholder;
-
-    let pid = remote.process.pid;
-
-    getAppIconByPid(pid, { size: 60 }).then(res => {
-
-        let img = 'data:image/png;base64,' + new Buffer(res).toString('base64');
-        document.getElementById('prompt-img').src = img;
-    });
+    document.getElementById('prompt-img').src = options.icon
 
     if (options.browserWindow == null) {
         var header = document.getElementById('header')

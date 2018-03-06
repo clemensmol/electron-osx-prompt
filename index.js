@@ -9,13 +9,19 @@ const path = require('path');
 function InputPrompt (
               _label = 'Please enter a value',
               _placeholder = '',
+              _icon = './icon.png',
               browserWindow = null) {
   return new Promise((resolve, reject) => {
+
     if (process.platform !== 'darwin') {
       let err = 'Electron-osx-prompt is only available for macOS.'
       console.error(err)
       Promise.reject(new Error(err))
       return
+    }
+
+    if (_icon == null) {
+      _icon = './icon.png'
     }
 
     let hasParent = null
@@ -52,6 +58,7 @@ function InputPrompt (
     let options = {
       label: _label.toString(),
       placeholder: _placeholder.toString(),
+      icon: _icon.toString(),
       browserWindow: hasParent
     }
 
