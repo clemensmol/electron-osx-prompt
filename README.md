@@ -33,7 +33,7 @@ You can change the label text and the textbox placeholder text.
 You can also provide a PNG or JPEG image for the prompt icon. It's size should be about 60 x 60 px.
 If you pass a BrowserWindow instance as the fourth parameter, the prompt will be attached as a dialog from the top.
 
-### input([label, placeholder, browserWindow])
+### userPrompt([label, placeholder, icon, browserWindow])
 - label: `string`. Default: `"Please enter a value"`.
 - placeholder: `string`. Default: `""`.
 - icon: `string`. Default: Electron's standard icon.
